@@ -1886,7 +1886,8 @@ html {
 
 /* Gold styling for Samuel and Benjamin Munday */
 .gold-name {
-  color: #B8860B !important; /* Dark goldenrod for better visibility */
-  font-weight: var(--font-weight-bold);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for better readability */
+  color: #8B6914 !important; /* Even darker gold for maximum visibility */
+  font-weight: 700 !important; /* Extra bold */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Stronger shadow for better readability */
+  font-size: 1.1em; /* Slightly larger for emphasis */
 }
