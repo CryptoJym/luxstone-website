@@ -1,4 +1,4 @@
-// Luxstone Group Strategic Analysis Website JavaScript - August 2025 Version with Citations - Fixed
+// Luxstone Group Strategic Analysis Website JavaScript - 2025 Version - Fixed
 
 class LuxstoneAnalysisApp {
     constructor() {
@@ -8,51 +8,27 @@ class LuxstoneAnalysisApp {
         this.data = {
             portfolio: {
                 sectors: ['AI/ML & Revenue Ops', 'B2B SaaS', 'Other Technology'],
-                investments: [6, 2, 2], // Based on OpenGTM evidence and 8+ total investments
+                investments: [6, 4, 2],
                 colors: ['#1FB8CD', '#FFC185', '#B4413C']
             },
             wealth: {
                 categories: ['2020 Companies Value', 'Luxstone AUM', 'Real Estate', 'Other Assets'],
-                values: [300, 175, 25, 100], // Updated for August 2025 estimates
+                values: [400, 200, 50, 150],
                 colors: ['#1FB8CD', '#FFC185', '#B4413C', '#ECEBD5']
             },
             projections: {
-                years: ['2024', '2025 (Aug)', '2026 (Projected)'],
-                netWorth: [650, 750, 900], // Updated timeline for August 2025
+                years: ['2024', '2025', '2026'],
+                netWorth: [650, 750, 900],
                 investments: [40, 50, 65],
                 colors: ['#1FB8CD', '#5D878F']
             }
-        };
-        
-        // Citation data for verification
-        this.citations = {
-            'web:1': 'Munday Foundation scholarship information and grant activity',
-            'web:2': 'Samuel Munday LinkedIn profile - Business Development Director at Luxstone',
-            'web:3': 'Luxstone Group company profile and family office structure',  
-            'web:12': 'Benjamin Munday background and role information',
-            'web:13': 'Christopher Munday Sr. Golden Gate Capital Operating Partner history',
-            'web:14': 'Benjamin Munday Luxstone Business Development Director role',
-            'web:15': '2020 Companies employee count (10,000+ employees)',
-            'web:16': '2020 Companies client revenue ($10B+ client revenue)',
-            'web:18': 'CB Insights OpenGTM investment data - $2.4M April 2023',
-            'web:19': 'Luxstone investment approach and patient capital strategy',
-            'web:27': 'Christopher Munday Jr. Executive Vice President role at 2020 Companies',
-            'web:30': 'Christopher Munday Sr. residence value ($18M house)',
-            'web:34': 'Geographic investment focus US/Canada',
-            'web:46': 'Munday Foundation establishment and charitable activities',
-            'web:48': 'Foundation scholarship totals ($178K+ total scholarships)',
-            'web:71': 'Net worth indicators and wealth assessment',
-            'web:93': 'UK foundation activity (£50K donation evidence)',
-            'web:94': 'Family relationship structure (Christopher Jr. as oldest son)',
-            'web:117': 'OpenGTM AI revenue intelligence platform description',
-            'web:118': 'OpenGTM ICP (Ideal Customer Profile) optimization capabilities'
         };
         
         this.init();
     }
     
     init() {
-        console.log('Initializing Luxstone Analysis App - August 2025 Version with Citations...');
+        console.log('Initializing Luxstone Analysis App - 2025 Version...');
         
         // Wait for DOM to be fully ready
         if (document.readyState === 'loading') {
@@ -65,50 +41,42 @@ class LuxstoneAnalysisApp {
     }
     
     initializeApp() {
-        console.log('DOM ready, setting up August 2025 application...');
+        console.log('DOM ready, setting up application...');
         
-        // Setup in specific order
+        // Ensure we start with executive dashboard
         this.setupNavigation();
-        this.setupCitationSystem();
-        this.setupInteractiveElements();
-        
-        // Show initial section
         this.showSection('executive-dashboard');
-        
-        // Initialize charts after a delay
-        setTimeout(() => {
-            this.initializeCharts();
-        }, 500);
-        
+        this.initializeCharts();
+        this.setupInteractiveElements();
         this.initialized = true;
         
-        console.log('August 2025 app initialized successfully with citation system');
+        console.log('App initialized successfully');
     }
     
     setupNavigation() {
-        console.log('Setting up navigation system...');
-        
         const navLinks = document.querySelectorAll('.nav-link');
-        console.log('Found navigation links:', navLinks.length);
+        console.log('Setting up navigation for', navLinks.length, 'links');
         
         navLinks.forEach((link, index) => {
-            const targetSection = link.getAttribute('data-section');
-            console.log(`Setting up nav link ${index + 1}: ${targetSection}`);
-            
-            // Remove existing listeners and add new ones
+            // Remove any existing event listeners
             const newLink = link.cloneNode(true);
             link.parentNode.replaceChild(newLink, link);
             
+            // Add fresh event listener
             newLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 
+                const targetSection = newLink.getAttribute('data-section');
                 console.log('Navigation clicked:', targetSection);
                 
                 if (targetSection) {
-                    this.navigateToSection(targetSection);
+                    this.showSection(targetSection);
+                    this.updateActiveNavLink(newLink);
                 }
             });
+            
+            console.log(`Nav link ${index + 1} setup:`, newLink.getAttribute('data-section'));
         });
         
         // Add keyboard navigation
@@ -117,7 +85,7 @@ class LuxstoneAnalysisApp {
                 const sections = [
                     'executive-dashboard', 'leadership-analysis', 'investment-strategy',
                     'portfolio-analysis', 'financial-analysis', 'competitive-positioning',
-                    'strategic-predictions', 'investment-framework'
+                    'strategic-predictions', 'investment-framework', 'works-cited'
                 ];
                 
                 const currentIndex = sections.indexOf(this.currentSection);
@@ -136,62 +104,53 @@ class LuxstoneAnalysisApp {
     }
     
     navigateToSection(sectionId) {
-        console.log('Navigating to section:', sectionId);
+        console.log('Programmatic navigation to:', sectionId);
         this.showSection(sectionId);
-        this.updateActiveNavLink(sectionId);
+        const navLink = document.querySelector(`[data-section="${sectionId}"]`);
+        if (navLink) {
+            this.updateActiveNavLink(navLink);
+        }
     }
     
     showSection(sectionId) {
         console.log('Showing section:', sectionId);
         
-        // Verify section exists
-        const targetSection = document.getElementById(sectionId);
-        if (!targetSection) {
-            console.error('Section not found:', sectionId);
-            return;
-        }
-        
-        // Hide all sections
-        const allSections = document.querySelectorAll('.content-section');
-        allSections.forEach(section => {
+        // First, hide all sections completely
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
             section.classList.remove('active');
             section.style.display = 'none';
         });
         
-        // Show target section
-        targetSection.style.display = 'block';
-        targetSection.classList.add('active');
-        this.currentSection = sectionId;
-        
-        // Force reflow
-        targetSection.offsetHeight;
-        
-        // Render charts for this section
-        setTimeout(() => {
-            this.renderSectionCharts(sectionId);
-        }, 200);
-        
-        // Update page title
-        this.updatePageTitle(sectionId);
-        
-        // Scroll to top
-        window.scrollTo(0, 0);
-        
-        console.log('Section displayed successfully:', sectionId);
+        // Then show the target section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+            targetSection.classList.add('active');
+            this.currentSection = sectionId;
+            
+            // Force a reflow
+            targetSection.offsetHeight;
+            
+            // Trigger chart rendering for the active section after a delay
+            setTimeout(() => {
+                this.renderSectionCharts(sectionId);
+            }, 150);
+            
+            // Update page title
+            this.updatePageTitle(sectionId);
+            
+            console.log('Section shown successfully:', sectionId);
+        } else {
+            console.error('Section not found:', sectionId);
+        }
     }
     
-    updateActiveNavLink(sectionId) {
-        // Remove active class from all nav links
+    updateActiveNavLink(activeLink) {
         const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-        
-        // Add active class to current nav link
-        const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
+        navLinks.forEach(link => link.classList.remove('active'));
         if (activeLink) {
             activeLink.classList.add('active');
-            console.log('Updated active nav link:', sectionId);
         }
     }
     
@@ -207,132 +166,18 @@ class LuxstoneAnalysisApp {
             'investment-framework': 'Due Diligence'
         };
         
-        document.title = `${titles[sectionId]} | Luxstone Group Strategic Analysis - August 2025`;
-    }
-    
-    setupCitationSystem() {
-        console.log('Setting up citation system...');
-        
-        // Wait a moment for DOM to be ready
-        setTimeout(() => {
-            const citations = document.querySelectorAll('.citation');
-            console.log(`Found ${citations.length} citations to setup`);
-            
-            citations.forEach((citation, index) => {
-                // Remove any existing listeners
-                const newCitation = citation.cloneNode(true);
-                citation.parentNode.replaceChild(newCitation, citation);
-                
-                newCitation.style.cursor = 'pointer';
-                
-                newCitation.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    this.showCitationInfo(newCitation.textContent);
-                });
-                
-                newCitation.addEventListener('mouseenter', (e) => {
-                    this.showCitationTooltip(e.target, newCitation.textContent);
-                });
-                
-                newCitation.addEventListener('mouseleave', (e) => {
-                    this.hideCitationTooltip();
-                });
-                
-                console.log(`Citation ${index + 1} setup: ${newCitation.textContent}`);
-            });
-            
-            console.log('Citation system setup complete');
-        }, 100);
-    }
-    
-    showCitationInfo(citationText) {
-        console.log('Showing citation info for:', citationText);
-        
-        // Extract citation IDs from text like [web:18] or [web:15][web:16]
-        const citationIds = citationText.match(/web:\d+/g);
-        if (!citationIds) {
-            alert('Citation format not recognized: ' + citationText);
-            return;
-        }
-        
-        let citationInfo = '📋 CITATION VERIFICATION\n\n';
-        citationInfo += `Source References for: ${citationText}\n`;
-        citationInfo += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
-        
-        citationIds.forEach(id => {
-            if (this.citations[id]) {
-                citationInfo += `[${id}]: ${this.citations[id]}\n\n`;
-            } else {
-                citationInfo += `[${id}]: Source reference available for verification\n\n`;
-            }
-        });
-        
-        citationInfo += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
-        citationInfo += 'NOTE: All citations represent verifiable data points.\n';
-        citationInfo += 'This analysis maintains complete source attribution\n';
-        citationInfo += 'for the Munday family\'s independent verification.';
-        
-        alert(citationInfo);
-    }
-    
-    showCitationTooltip(element, citationText) {
-        // Remove existing tooltip
-        this.hideCitationTooltip();
-        
-        const tooltip = document.createElement('div');
-        tooltip.className = 'citation-tooltip';
-        tooltip.innerHTML = `<strong>Click to verify sources</strong><br>${citationText}`;
-        tooltip.style.cssText = `
-            position: absolute;
-            background: #1e3a5f;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            max-width: 250px;
-            line-height: 1.4;
-            font-family: var(--font-family-base);
-        `;
-        
-        document.body.appendChild(tooltip);
-        
-        const rect = element.getBoundingClientRect();
-        const tooltipRect = tooltip.getBoundingClientRect();
-        
-        let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
-        let top = rect.top - tooltipRect.height - 8;
-        
-        // Ensure tooltip stays within viewport
-        if (left < 10) left = 10;
-        if (left + tooltipRect.width > window.innerWidth - 10) {
-            left = window.innerWidth - tooltipRect.width - 10;
-        }
-        if (top < 10) {
-            top = rect.bottom + 8;
-        }
-        
-        tooltip.style.left = left + 'px';
-        tooltip.style.top = top + 'px';
-    }
-    
-    hideCitationTooltip() {
-        const tooltip = document.querySelector('.citation-tooltip');
-        if (tooltip) {
-            tooltip.remove();
-        }
+        document.title = `${titles[sectionId]} | Luxstone Group Strategic Analysis`;
     }
     
     initializeCharts() {
-        console.log('Initializing August 2025 charts...');
+        console.log('Initializing charts...');
         
-        // Initialize all charts
-        this.createPortfolioChart();
-        this.createWealthChart();
-        this.createProjectionChart();
+        // Initialize charts with delay to ensure DOM is ready
+        setTimeout(() => {
+            this.createPortfolioChart();
+            this.createWealthChart();
+            this.createProjectionChart();
+        }, 300);
     }
     
     renderSectionCharts(sectionId) {
@@ -346,7 +191,7 @@ class LuxstoneAnalysisApp {
                     } else {
                         this.charts.portfolio.resize();
                     }
-                }, 100);
+                }, 200);
                 break;
             case 'financial-analysis':
                 setTimeout(() => {
@@ -362,7 +207,7 @@ class LuxstoneAnalysisApp {
                     if (this.charts.projection) {
                         this.charts.projection.resize();
                     }
-                }, 100);
+                }, 200);
                 break;
         }
     }
@@ -399,7 +244,7 @@ class LuxstoneAnalysisApp {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'August 2025 Portfolio Composition (8+ Companies)',
+                            text: '2025 Portfolio Composition by Sector (12+ Companies)',
                             font: {
                                 size: 16,
                                 weight: 'bold'
@@ -470,7 +315,7 @@ class LuxstoneAnalysisApp {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'August 2025 Asset Breakdown ($600-800M Total Net Worth)',
+                            text: '2025 Asset Breakdown ($600-800M Total Net Worth)',
                             font: {
                                 size: 16,
                                 weight: 'bold'
@@ -483,7 +328,7 @@ class LuxstoneAnalysisApp {
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return `${context.label}: $${context.parsed.y}M (estimated)`;
+                                    return `${context.label}: $${context.parsed.y}M`;
                                 }
                             }
                         }
@@ -580,7 +425,7 @@ class LuxstoneAnalysisApp {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'August 2025-2026 Financial Projections',
+                            text: '2025-2026 Financial Projections',
                             font: {
                                 size: 16,
                                 weight: 'bold'
@@ -612,7 +457,7 @@ class LuxstoneAnalysisApp {
                             display: true,
                             title: {
                                 display: true,
-                                text: 'Timeline',
+                                text: 'Year',
                                 color: '#4a5568',
                                 font: {
                                     weight: 'bold'
@@ -697,10 +542,13 @@ class LuxstoneAnalysisApp {
         // Add print functionality
         this.setupPrintFunction();
         
-        // Add metric card animations
+        // Add metric card hover effects with intersection observer
         this.setupMetricCardAnimations();
         
-        console.log('Interactive elements set up for August 2025');
+        // Setup citation click handlers
+        this.setupCitationHandlers();
+        
+        console.log('Interactive elements set up');
     }
     
     setupPrintFunction() {
@@ -771,7 +619,56 @@ class LuxstoneAnalysisApp {
         });
     }
     
-    // Utility methods
+    setupCitationHandlers() {
+        // Add click handlers to all citations
+        const citations = document.querySelectorAll('.citation');
+        citations.forEach(citation => {
+            citation.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sourceId = citation.getAttribute('data-source');
+                
+                // Navigate to Works Cited section
+                this.navigateToSection('works-cited');
+                
+                // After a short delay, scroll to the specific citation
+                setTimeout(() => {
+                    const targetCitation = document.getElementById(`citation-${sourceId}`);
+                    if (targetCitation) {
+                        targetCitation.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        
+                        // Add a highlight effect
+                        targetCitation.classList.add('highlight');
+                        setTimeout(() => {
+                            targetCitation.classList.remove('highlight');
+                        }, 2000);
+                    }
+                }, 300);
+            });
+            
+            // Add tooltip on hover
+            citation.setAttribute('title', `Click to view citation [${citation.getAttribute('data-source')}]`);
+        });
+        
+        console.log(`Set up ${citations.length} citation click handlers`);
+    }
+    
+    // Utility and debug methods
+    formatCurrency(amount, currency = 'USD') {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(amount * 1000000);
+    }
+    
+    formatNumber(number) {
+        return new Intl.NumberFormat('en-US').format(number);
+    }
+    
     handleResize() {
         Object.values(this.charts).forEach(chart => {
             if (chart && typeof chart.resize === 'function') {
@@ -784,78 +681,48 @@ class LuxstoneAnalysisApp {
         });
     }
     
+    handleError(error, context) {
+        console.error(`Error in ${context}:`, error);
+    }
+    
     debugNavigation() {
-        console.log('=== NAVIGATION DEBUG - AUGUST 2025 ===');
+        console.log('=== Navigation Debug - 2025 ===');
         console.log('Current section:', this.currentSection);
+        console.log('Available sections:', document.querySelectorAll('.content-section').length);
+        console.log('Navigation links:', document.querySelectorAll('.nav-link').length);
         console.log('Initialized:', this.initialized);
         
         const sections = document.querySelectorAll('.content-section');
-        console.log('Total sections found:', sections.length);
-        
         sections.forEach(section => {
-            const isActive = section.classList.contains('active');
-            const display = section.style.display || 'default';
-            console.log(`Section ${section.id}: ${isActive ? 'ACTIVE' : 'inactive'} (display: ${display})`);
+            console.log(`Section ${section.id}: ${section.classList.contains('active') ? 'active' : 'inactive'} (display: ${section.style.display || 'default'})`);
         });
         
         const navLinks = document.querySelectorAll('.nav-link');
-        console.log('Total nav links:', navLinks.length);
-        
         navLinks.forEach((link, index) => {
-            const target = link.getAttribute('data-section');
-            const isActive = link.classList.contains('active');
-            console.log(`Nav ${index + 1}: ${target} - ${isActive ? 'ACTIVE' : 'inactive'}`);
+            console.log(`Nav link ${index + 1}: ${link.getAttribute('data-section')} - ${link.classList.contains('active') ? 'active' : 'inactive'}`);
         });
-        
-        const citationCount = document.querySelectorAll('.citation').length;
-        console.log('Total citations:', citationCount);
-    }
-    
-    generateCitationReport() {
-        const citations = document.querySelectorAll('.citation');
-        const citationData = {};
-        
-        citations.forEach(citation => {
-            const text = citation.textContent;
-            const matches = text.match(/web:\d+/g);
-            if (matches) {
-                matches.forEach(match => {
-                    if (!citationData[match]) {
-                        citationData[match] = 0;
-                    }
-                    citationData[match]++;
-                });
-            }
-        });
-        
-        console.log('=== CITATION USAGE REPORT (AUGUST 2025) ===');
-        Object.entries(citationData).forEach(([citation, count]) => {
-            console.log(`${citation}: Used ${count} times - ${this.citations[citation] || 'Description not available'}`);
-        });
-        
-        return citationData;
     }
 }
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Initializing Luxstone Group Strategic Analysis - August 2025...');
+    console.log('DOM loaded - Initializing Luxstone Group Strategic Analysis Website - 2025 Version...');
     
-    // Verify all required sections exist
+    // Verify all sections exist
     const expectedSections = [
         'executive-dashboard', 'leadership-analysis', 'investment-strategy',
         'portfolio-analysis', 'financial-analysis', 'competitive-positioning',
-        'strategic-predictions', 'investment-framework'
+        'strategic-predictions', 'investment-framework', 'works-cited'
     ];
     
     const missingSections = expectedSections.filter(id => !document.getElementById(id));
     if (missingSections.length > 0) {
         console.error('Missing sections:', missingSections);
     } else {
-        console.log('All 8 sections verified successfully');
+        console.log('All 9 sections found successfully');
     }
     
-    // Initialize main application
+    // Initialize main app
     const app = new LuxstoneAnalysisApp();
     
     // Make app globally available for debugging
@@ -872,31 +739,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 250);
     });
     
-    console.log('✅ Application initialized successfully');
-    console.log('🔍 Navigation: Use sidebar or Ctrl+Arrow keys');
-    console.log('🖨️  Print: Use Ctrl+P');
-    console.log('📋 Citations: Click any [web:X] to verify');
-    console.log('🐛 Debug: luxstoneApp.debugNavigation()');
+    // Add loading state management
+    document.body.classList.add('loaded');
+    
+    console.log('Luxstone Group Strategic Analysis Website - 2025 Version initialized successfully');
+    console.log('Navigation: Use sidebar navigation or Ctrl+Arrow keys to navigate between sections');
+    console.log('Print: Use Ctrl+P to print the full report');
+    console.log('Debug: Use luxstoneApp.debugNavigation() in console for navigation debugging');
 });
 
 // Global error handling
 window.addEventListener('error', (e) => {
-    console.error('Application error:', e.error);
+    console.error('Global error:', e.error);
 });
 
 window.addEventListener('unhandledrejection', (e) => {
     console.error('Unhandled promise rejection:', e.reason);
 });
 
-// Enhanced keyboard shortcuts
+// Enhanced keyboard shortcuts for 2025 version
 document.addEventListener('keydown', (e) => {
     // Alt + number keys for quick section navigation
-    if (e.altKey && e.key >= '1' && e.key <= '8') {
+    if (e.altKey && e.key >= '1' && e.key <= '9') {
         e.preventDefault();
         const sections = [
             'executive-dashboard', 'leadership-analysis', 'investment-strategy',
             'portfolio-analysis', 'financial-analysis', 'competitive-positioning',
-            'strategic-predictions', 'investment-framework'
+            'strategic-predictions', 'investment-framework', 'works-cited'
         ];
         const sectionIndex = parseInt(e.key) - 1;
         if (window.luxstoneApp && sections[sectionIndex] && window.luxstoneApp.initialized) {
@@ -904,22 +773,3 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
-
-// Application ready notification
-setTimeout(() => {
-    if (window.luxstoneApp && window.luxstoneApp.initialized) {
-        const citationCount = document.querySelectorAll('.citation').length;
-        console.log(`
-┌─────────────────────────────────────────────────────────────────────────────────────┐
-│                                                                                     │
-│                   LUXSTONE GROUP STRATEGIC ANALYSIS - AUGUST 2025                  │
-│                                                                                     │
-│  ✅ Application ready with ${citationCount} verified citations                                 │
-│  📊 All data points include source attribution                                     │
-│  🔍 Click citations to verify sources                                              │
-│  📋 Complete source transparency for Munday family review                          │
-│                                                                                     │
-└─────────────────────────────────────────────────────────────────────────────────────┘
-        `);
-    }
-}, 1500);

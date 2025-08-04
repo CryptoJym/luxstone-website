@@ -738,7 +738,7 @@ select.form-control {
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
-/* Updated styles for Luxstone Group Strategic Analysis Website - August 2025 Version with Citations */
+/* Updated styles for Luxstone Group Strategic Analysis Website - 2025 Version */
 
 /* Corporate color palette for institutional feel */
 :root {
@@ -754,8 +754,6 @@ select.form-control {
   --corporate-success: #38a169;
   --corporate-warning: #d69e2e;
   --corporate-error: #e53e3e;
-  --citation-highlight: #ff6b35;
-  --citation-bg: #fff3e0;
 }
 
 /* Base layout and typography */
@@ -821,12 +819,8 @@ body {
 }
 
 .report-date {
-  font-size: var(--font-size-base);
-  color: var(--corporate-white);
-  font-weight: var(--font-weight-semibold);
-  background: rgba(255, 255, 255, 0.1);
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--corporate-gray-light);
 }
 
 .confidentiality {
@@ -845,9 +839,9 @@ body {
   flex: 1;
 }
 
-/* Sidebar Navigation - Enhanced for August 2025 */
+/* Sidebar Navigation - Fixed to be visible */
 .sidebar-nav {
-  width: 300px;
+  width: 280px;
   background: var(--corporate-white);
   border-right: 1px solid var(--corporate-gray-light);
   padding: var(--space-24);
@@ -870,7 +864,7 @@ body {
 .nav-menu {
   list-style: none;
   padding: 0;
-  margin: 0 0 var(--space-24) 0;
+  margin: 0;
 }
 
 .nav-menu li {
@@ -887,49 +881,23 @@ body {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
   cursor: pointer;
-  border-left: 3px solid transparent;
 }
 
 .nav-link:hover {
   background: var(--color-bg-1);
   color: var(--corporate-navy);
-  border-left-color: var(--corporate-accent);
 }
 
 .nav-link.active {
   background: var(--corporate-navy);
   color: var(--corporate-white);
-  border-left-color: var(--corporate-accent);
-}
-
-/* Citation info panel */
-.citation-info {
-  background: var(--citation-bg);
-  padding: var(--space-16);
-  border-radius: var(--radius-base);
-  border-left: 4px solid var(--citation-highlight);
-  margin-top: var(--space-20);
-}
-
-.citation-info h4 {
-  color: var(--corporate-navy);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  margin: 0 0 var(--space-8) 0;
-}
-
-.citation-info p {
-  font-size: var(--font-size-xs);
-  color: var(--corporate-gray-medium);
-  margin: 0;
-  line-height: 1.4;
 }
 
 /* Main Content Area */
 .main-content {
   flex: 1;
   padding: var(--space-32);
-  max-width: calc(100vw - 300px);
+  max-width: calc(100vw - 280px);
   overflow-x: hidden;
 }
 
@@ -970,27 +938,6 @@ body {
   font-weight: var(--font-weight-normal);
 }
 
-/* Citation styling */
-.citation {
-  display: inline-block;
-  background: var(--citation-highlight);
-  color: var(--corporate-white);
-  padding: var(--space-1) var(--space-4);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  border-radius: var(--radius-sm);
-  margin: 0 var(--space-2);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-standard);
-  text-decoration: none;
-}
-
-.citation:hover {
-  background: var(--corporate-accent);
-  color: var(--corporate-navy);
-  transform: scale(1.05);
-}
-
 /* Metrics Grid - Executive Dashboard */
 .metrics-grid {
   display: grid;
@@ -1006,18 +953,6 @@ body {
   box-shadow: var(--shadow-sm);
   border-left: 4px solid var(--corporate-accent);
   transition: transform var(--duration-normal) var(--ease-standard);
-  position: relative;
-  overflow: hidden;
-}
-
-.metric-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 100%);
 }
 
 .metric-card:hover {
@@ -1061,9 +996,6 @@ body {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--corporate-success);
-  background: rgba(56, 161, 105, 0.1);
-  padding: var(--space-2) var(--space-6);
-  border-radius: var(--radius-sm);
 }
 
 .metric-value {
@@ -1076,7 +1008,6 @@ body {
 .metric-context {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  line-height: 1.4;
 }
 
 /* Dashboard Content */
@@ -1091,7 +1022,6 @@ body {
   padding: var(--space-24);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  border-top: 3px solid var(--corporate-accent);
 }
 
 .overview-panel h3, .investment-snapshot h3 {
@@ -1111,7 +1041,6 @@ body {
   background: var(--color-bg-1);
   border-radius: var(--radius-base);
   font-size: var(--font-size-sm);
-  border-left: 3px solid var(--corporate-accent);
 }
 
 .snapshot-metrics {
@@ -1138,7 +1067,6 @@ body {
   font-size: var(--font-size-base);
   color: var(--corporate-navy);
   font-weight: var(--font-weight-semibold);
-  line-height: 1.4;
 }
 
 /* Leadership Analysis */
@@ -1159,21 +1087,10 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border-top: 4px solid var(--corporate-accent);
-  position: relative;
 }
 
 .leader-profile--primary {
   border-top-color: var(--corporate-navy);
-}
-
-.leader-profile::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(45deg, transparent 30%, rgba(30, 58, 95, 0.05) 100%);
 }
 
 .leader-header {
@@ -1196,13 +1113,12 @@ body {
 
 .leader-details {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--space-8);
 }
 
 .detail-row {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  line-height: 1.5;
 }
 
 .team-analysis, .leadership-insights {
@@ -1210,7 +1126,6 @@ body {
   padding: var(--space-24);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  border-top: 3px solid var(--corporate-light-blue);
 }
 
 .team-analysis h3, .leadership-insights h3 {
@@ -1243,7 +1158,6 @@ body {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-12);
-  display: block;
 }
 
 .member-focus {
@@ -1255,14 +1169,13 @@ body {
 .member-focus li {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   padding-left: var(--space-16);
   position: relative;
-  line-height: 1.4;
 }
 
 .member-focus li::before {
-  content: '→';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--corporate-accent);
@@ -1273,7 +1186,6 @@ body {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
   margin: var(--space-8) 0 0 0;
-  line-height: 1.5;
 }
 
 /* Strategy and other sections styles */
@@ -1290,7 +1202,6 @@ body {
   padding: var(--space-24);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  border-top: 3px solid var(--corporate-accent);
 }
 
 .strategy-framework h3, .portfolio-patterns h3, .wealth-breakdown h3,
@@ -1299,33 +1210,6 @@ body {
   color: var(--corporate-navy);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-20);
-}
-
-/* Valuation sources styling */
-.valuation-sources, .projection-assumptions, .methodology-content {
-  background: var(--citation-bg);
-  padding: var(--space-16);
-  border-radius: var(--radius-base);
-  border-left: 4px solid var(--citation-highlight);
-  margin-top: var(--space-16);
-}
-
-.valuation-sources h4, .projection-assumptions h4 {
-  color: var(--corporate-navy);
-  font-size: var(--font-size-base);
-  margin: 0 0 var(--space-12) 0;
-}
-
-.valuation-sources ul, .projection-assumptions ul {
-  margin: 0;
-  padding-left: var(--space-16);
-}
-
-.valuation-sources li, .projection-assumptions li {
-  font-size: var(--font-size-sm);
-  color: var(--corporate-gray-medium);
-  margin-bottom: var(--space-8);
-  line-height: 1.5;
 }
 
 /* Strategy metrics specific styles */
@@ -1343,7 +1227,6 @@ body {
   padding: var(--space-16);
   background: var(--color-bg-1);
   border-radius: var(--radius-base);
-  border: 2px solid var(--corporate-accent);
 }
 
 .metric-number {
@@ -1356,8 +1239,6 @@ body {
 .metric-desc {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  text-align: center;
-  line-height: 1.4;
 }
 
 /* Chart containers */
@@ -1366,18 +1247,6 @@ body {
   border-radius: var(--radius-base);
   padding: var(--space-16);
   margin: var(--space-16) 0;
-  border: 1px solid var(--corporate-gray-light);
-}
-
-.chart-note {
-  font-size: var(--font-size-xs);
-  color: var(--corporate-gray-medium);
-  font-style: italic;
-  text-align: center;
-  margin-top: var(--space-8);
-  padding: var(--space-8);
-  background: var(--citation-bg);
-  border-radius: var(--radius-sm);
 }
 
 /* Investment details */
@@ -1399,7 +1268,6 @@ body {
   padding: var(--space-12);
   background: var(--color-bg-1);
   border-radius: var(--radius-base);
-  border-left: 3px solid var(--corporate-accent);
 }
 
 .metric-label {
@@ -1436,7 +1304,6 @@ body {
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  border: 1px solid var(--corporate-accent);
 }
 
 /* Financial Analysis */
@@ -1470,7 +1337,6 @@ body {
 .deployment-note {
   font-size: var(--font-size-xs);
   color: var(--corporate-gray-medium);
-  line-height: 1.4;
 }
 
 /* Generic content styling for all sections */
@@ -1478,7 +1344,7 @@ body {
 .predictions-grid, .questions-grid, .criteria-analysis,
 .pattern-analysis {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-20);
 }
 
@@ -1488,12 +1354,6 @@ body {
   border-radius: var(--radius-base);
   border-left: 4px solid var(--corporate-navy);
   background: var(--color-bg-1);
-  transition: transform var(--duration-fast) var(--ease-standard);
-}
-
-.framework-item:hover, .focus-area:hover, .position-item:hover,
-.prediction-card:hover, .question-category:hover, .criteria-category:hover, .pattern-item:hover {
-  transform: translateY(-2px);
 }
 
 .framework-item h4, .focus-area h4, .position-item h4,
@@ -1529,17 +1389,14 @@ body {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
   margin-bottom: var(--space-12);
-  line-height: 1.5;
 }
 
 .prediction-rationale {
   font-size: var(--font-size-xs);
   color: var(--corporate-gray-medium);
-  background: var(--citation-bg);
+  background: var(--color-bg-8);
   padding: var(--space-8);
   border-radius: var(--radius-sm);
-  border-left: 3px solid var(--citation-highlight);
-  line-height: 1.4;
 }
 
 /* Timeline */
@@ -1550,7 +1407,7 @@ body {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: var(--space-20);
   padding: var(--space-16);
   border-left: 4px solid var(--corporate-accent);
@@ -1562,11 +1419,6 @@ body {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--corporate-navy);
-  background: var(--corporate-accent);
-  color: var(--corporate-navy);
-  padding: var(--space-8);
-  border-radius: var(--radius-base);
-  text-align: center;
 }
 
 .timeline-content h4 {
@@ -1584,10 +1436,9 @@ body {
 .timeline-content li {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   padding-left: var(--space-16);
   position: relative;
-  line-height: 1.5;
 }
 
 .timeline-content li::before {
@@ -1608,10 +1459,10 @@ body {
 .focus-area li, .question-list li, .criteria-category li {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   padding-left: var(--space-16);
   position: relative;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .focus-area li::before {
@@ -1642,14 +1493,13 @@ body {
 .advantage-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .advantage {
   font-size: var(--font-size-sm);
   color: var(--corporate-success);
   font-weight: var(--font-weight-medium);
-  line-height: 1.4;
 }
 
 /* Value propositions */
@@ -1680,38 +1530,6 @@ body {
 }
 
 .prop-content p {
-  font-size: var(--font-size-sm);
-  color: var(--corporate-gray-medium);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Methodology note styling */
-.methodology-note {
-  background: var(--citation-bg);
-  padding: var(--space-24);
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--citation-highlight);
-  margin-top: var(--space-24);
-}
-
-.methodology-note h3 {
-  color: var(--corporate-navy);
-  margin-bottom: var(--space-16);
-  font-size: var(--font-size-lg);
-}
-
-.method-item {
-  margin-bottom: var(--space-16);
-}
-
-.method-item h4 {
-  color: var(--corporate-navy);
-  font-size: var(--font-size-base);
-  margin: 0 0 var(--space-8) 0;
-}
-
-.method-item p {
   font-size: var(--font-size-sm);
   color: var(--corporate-gray-medium);
   margin: 0;
@@ -1818,12 +1636,6 @@ body {
   .main-header {
     position: static;
   }
-  
-  .citation {
-    background: none;
-    color: var(--corporate-navy);
-    border: 1px solid var(--corporate-navy);
-  }
 }
 
 /* Smooth scrolling and transitions */
@@ -1841,53 +1653,81 @@ html {
   transition: transform var(--duration-fast) var(--ease-standard);
 }
 
-.loaded .metric-card, .loaded .leader-profile, .loaded .framework-item {
-  opacity: 1;
-  transform: translateY(0);
+.metric-card:hover, .leader-profile:hover, .framework-item:hover,
+.focus-area:hover, .pattern-item:hover, .prediction-card:hover,
+.question-category:hover, .criteria-category:hover {
+  transform: translateY(-1px);
 }
 
-/* Accessibility enhancements */
-.citation:focus {
-  outline: 2px solid var(--corporate-accent);
-  outline-offset: 2px;
+/* Citation Styles */
+.citation {
+  color: var(--corporate-accent);
+  font-size: 0.875em;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 2px;
+  vertical-align: super;
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
-.nav-link:focus {
-  outline: 2px solid var(--corporate-accent);
-  outline-offset: 2px;
+.citation:hover {
+  color: var(--corporate-gold);
+  text-decoration: underline;
 }
 
-/* Enhanced hover effects for interactive elements */
-.metric-card:hover .citation,
-.leader-profile:hover .citation,
-.framework-item:hover .citation {
-  background: var(--corporate-accent);
-  color: var(--corporate-navy);
+/* Works Cited Section */
+.citations-content {
+  padding: var(--space-24) 0;
 }
 
-/* Special styling for must-have vs preferred criteria */
-.criteria-category--must-have {
-  border-left-color: var(--corporate-error);
-  background: rgba(229, 62, 62, 0.05);
+.citation-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
 }
 
-.criteria-category--preferred {
-  border-left-color: var(--corporate-success);
-  background: rgba(56, 161, 105, 0.05);
+.citation-item {
+  display: flex;
+  gap: var(--space-16);
+  padding: var(--space-16);
+  background: var(--color-bg-1);
+  border-radius: var(--radius-base);
+  border-left: 3px solid var(--corporate-accent);
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
-.criteria-category--must-have h4 {
-  color: var(--corporate-error);
+.citation-item:target {
+  background: rgba(var(--color-teal-500-rgb), 0.1);
+  border-left-color: var(--corporate-gold);
+  box-shadow: var(--shadow-sm);
 }
 
-.criteria-category--preferred h4 {
-  color: var(--corporate-success);
+.citation-number {
+  color: var(--corporate-accent);
+  font-weight: var(--font-weight-bold);
+  min-width: 35px;
+  font-size: var(--font-size-base);
 }
 
-/* Gold styling for Samuel and Benjamin Munday */
-.gold-name {
-  color: #8B6914 !important; /* Even darker gold for maximum visibility */
-  font-weight: 700 !important; /* Extra bold */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Stronger shadow for better readability */
-  font-size: 1.1em; /* Slightly larger for emphasis */
-}/* Cache bust: Mon Aug  4 12:59:05 MDT 2025 */
+.citation-text {
+  color: var(--corporate-gray-medium);
+  line-height: 1.6;
+  font-size: var(--font-size-sm);
+}
+
+/* Citation highlight animation */
+.citation-item.highlight {
+  animation: citationHighlight 2s ease-out;
+}
+
+@keyframes citationHighlight {
+  0% {
+    background-color: rgba(var(--color-teal-500-rgb), 0.3);
+    transform: scale(1.02);
+  }
+  100% {
+    background-color: rgba(var(--color-teal-500-rgb), 0.1);
+    transform: scale(1);
+  }
+}
