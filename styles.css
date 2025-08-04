@@ -742,7 +742,7 @@ select.form-control {
 
 /* Corporate color palette for institutional feel */
 :root {
-  --corporate-navy: #1a1a1a; /* Changed from #1e3a5f for better visibility */
+  --corporate-navy: #000000; /* Changed to black for maximum visibility */
   --corporate-dark-blue: #2c5f7d;
   --corporate-light-blue: #4a90b8;
   --corporate-accent: #d4af37;
@@ -1207,7 +1207,7 @@ body {
 .strategy-framework h3, .portfolio-patterns h3, .wealth-breakdown h3,
 .positioning-analysis h3, .prediction-overview h3, .due-diligence-process h3,
 .featured-investment h3, .strategy-focus h3, .strategy-metrics h3 {
-  color: #1a1a1a;
+  color: #000000;
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-20);
   font-weight: var(--font-weight-bold);
@@ -1726,12 +1726,13 @@ html {
 h1, h2, h3, h4, h5, h6 {
   opacity: 1 !important;
   filter: none !important;
+  color: #000000 !important;
 }
 
 /* Ensure all main content text is dark and visible */
 .main-content h3,
 .main-content h4 {
-  color: #1a1a1a !important;
+  color: #000000 !important;
   opacity: 1 !important;
 }
 
@@ -1751,7 +1752,7 @@ h1, h2, h3, h4, h5, h6 {
 .prediction-timeline h3,
 .due-diligence-process h3,
 .investment-criteria h3 {
-  color: #1a1a1a !important;
+  color: #000000 !important;
   opacity: 1 !important;
   font-weight: 700 !important;
 }
@@ -1768,7 +1769,7 @@ h1, h2, h3, h4, h5, h6 {
 .timeline-content h4,
 .question-category h4,
 .criteria-category h4 {
-  color: #1a1a1a !important;
+  color: #000000 !important;
   opacity: 1 !important;
   font-weight: 600 !important;
 }
@@ -1782,7 +1783,7 @@ h1, h2, h3, h4, h5, h6 {
 .prediction-card,
 .question-category,
 .criteria-category {
-  color: #1a1a1a !important;
+  color: #000000 !important;
 }
 
 /* Override any transparent text */
