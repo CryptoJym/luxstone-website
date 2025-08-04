@@ -1207,9 +1207,10 @@ body {
 .strategy-framework h3, .portfolio-patterns h3, .wealth-breakdown h3,
 .positioning-analysis h3, .prediction-overview h3, .due-diligence-process h3,
 .featured-investment h3, .strategy-focus h3, .strategy-metrics h3 {
-  color: var(--corporate-navy);
+  color: #1a1a1a;
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-20);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Strategy metrics specific styles */
@@ -1719,6 +1720,44 @@ html {
 /* Citation highlight animation */
 .citation-item.highlight {
   animation: citationHighlight 2s ease-out;
+}
+
+/* Fix for heading visibility issues */
+.team-analysis h3,
+.leadership-insights h3,
+.strategy-framework h3,
+.strategy-focus h3,
+.featured-investment h3,
+.portfolio-patterns h3,
+.wealth-breakdown h3,
+.cash-deployment h3,
+.financial-projections h3,
+.positioning-analysis h3,
+.unique-value-prop h3,
+.prediction-overview h3,
+.prediction-timeline h3,
+.due-diligence-process h3,
+.investment-criteria h3 {
+  color: #1a1a1a !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+
+/* Fix h4 headings visibility */
+.team-member h4,
+.insight-item h4,
+.framework-item h4,
+.focus-area h4,
+.position-item h4,
+.pattern-item h4,
+.value-prop-item h4,
+.prediction-card h4,
+.timeline-content h4,
+.question-category h4,
+.criteria-category h4 {
+  color: #1a1a1a !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
 }
 
 @keyframes citationHighlight {
