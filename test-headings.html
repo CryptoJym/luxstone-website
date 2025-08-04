@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Heading Visibility</title>
+</head>
+<body>
+    <h1>Testing Heading Visibility Issues</h1>
+    <p>Open the Luxstone website and run these tests in the browser console:</p>
+    
+    <script>
+    // Paste this in the browser console when on the Leadership Analysis page:
+    
+    function checkHeadingVisibility() {
+        console.log('=== CHECKING HEADING VISIBILITY ===');
+        
+        // Check team member headings
+        const teamHeadings = document.querySelectorAll('.team-member h4');
+        teamHeadings.forEach(h => {
+            const styles = window.getComputedStyle(h);
+            console.log(`\nHeading: "${h.textContent}"`);
+            console.log('Color:', styles.color);
+            console.log('Opacity:', styles.opacity);
+            console.log('Font Weight:', styles.fontWeight);
+            console.log('Background:', styles.backgroundColor);
+            
+            // Check parent element
+            const parent = h.closest('.team-member');
+            const parentStyles = window.getComputedStyle(parent);
+            console.log('Parent Background:', parentStyles.backgroundColor);
+            console.log('Parent Opacity:', parentStyles.opacity);
+        });
+        
+        // Check focus area headings
+        const focusHeadings = document.querySelectorAll('.focus-area h4');
+        focusHeadings.forEach(h => {
+            const styles = window.getComputedStyle(h);
+            console.log(`\nFocus Area Heading: "${h.textContent}"`);
+            console.log('Color:', styles.color);
+            console.log('Opacity:', styles.opacity);
+        });
+        
+        // Check featured investment
+        const featuredHeading = document.querySelector('.featured-investment h3');
+        if (featuredHeading) {
+            const styles = window.getComputedStyle(featuredHeading);
+            console.log(`\nFeatured Investment: "${featuredHeading.textContent}"`);
+            console.log('Color:', styles.color);
+            console.log('Opacity:', styles.opacity);
+        }
+    }
+    
+    // Copy this function and run it in the console
+    </script>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Open https://luxstone-website.vercel.app</li>
+        <li>Open browser DevTools (F12)</li>
+        <li>Navigate to Leadership Analysis page</li>
+        <li>Copy the checkHeadingVisibility function above</li>
+        <li>Paste and run it in the console</li>
+        <li>Share the output to diagnose the issue</li>
+    </ol>
+</body>
+</html>

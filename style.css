@@ -742,7 +742,7 @@ select.form-control {
 
 /* Corporate color palette for institutional feel */
 :root {
-  --corporate-navy: #1e3a5f;
+  --corporate-navy: #1a1a1a; /* Changed from #1e3a5f for better visibility */
   --corporate-dark-blue: #2c5f7d;
   --corporate-light-blue: #4a90b8;
   --corporate-accent: #d4af37;
@@ -1722,6 +1722,19 @@ html {
   animation: citationHighlight 2s ease-out;
 }
 
+/* GLOBAL FIX for all heading visibility issues */
+h1, h2, h3, h4, h5, h6 {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Ensure all main content text is dark and visible */
+.main-content h3,
+.main-content h4 {
+  color: #1a1a1a !important;
+  opacity: 1 !important;
+}
+
 /* Fix for heading visibility issues */
 .team-analysis h3,
 .leadership-insights h3,
@@ -1758,6 +1771,23 @@ html {
   color: #1a1a1a !important;
   opacity: 1 !important;
   font-weight: 600 !important;
+}
+
+/* Ensure text on light backgrounds is visible */
+.focus-area,
+.framework-item,
+.team-member,
+.pattern-item,
+.position-item,
+.prediction-card,
+.question-category,
+.criteria-category {
+  color: #1a1a1a !important;
+}
+
+/* Override any transparent text */
+* {
+  -webkit-text-fill-color: initial !important;
 }
 
 @keyframes citationHighlight {
