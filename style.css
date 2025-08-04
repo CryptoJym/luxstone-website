@@ -1883,3 +1883,9 @@ html {
 .criteria-category--preferred h4 {
   color: var(--corporate-success);
 }
+
+/* Gold styling for Samuel and Benjamin Munday */
+.gold-name {
+  color: var(--corporate-accent) !important;
+  font-weight: var(--font-weight-bold);
+}
